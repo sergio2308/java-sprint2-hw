@@ -27,8 +27,8 @@ public class MonthlyReport {
             }
         }
     }
-    private String readFileContentsOrNull(String path)
-    {
+
+    private String readFileContentsOrNull(String path) {
         try {
             return Files.readString(Path.of(path));
         } catch (IOException e) {

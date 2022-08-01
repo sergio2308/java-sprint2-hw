@@ -6,29 +6,33 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         printMenu();
         String userInput = scanner.nextLine();
-        ReportsComparator reportsComparator= new ReportsComparator();
+        ReportsComparator reportsComparator = new ReportsComparator();
 
         while (!userInput.equals("exit")) {
-            if (userInput.equals("1")) {
-                reportsComparator.monthlyReport = new MonthlyReport();
-                System.out.println("Месячные отчеты считаны.");
-            } else if (userInput.equals("2")) {
-                reportsComparator.yearlyReport = new YearlyReport();
-                System.out.println("Годовой отчет считан.");
-            } else if (userInput.equals("3")) {
-                System.out.println("Сверка данных:");
-                reportsComparator.comparator();
-            } else if (userInput.equals("4")) {
-                System.out.println("Отчет по месяцам:");
-                reportsComparator.printMonthlyReport();
-            } else if (userInput.equals("5")) {
-                reportsComparator.printYearlyReport();
-            }  else {
-                System.out.println("Такой команды нет");
-            }
-            if (userInput.equals("exit")) {
-                System.out.println("Выход");
-                break;
+            switch (userInput) {
+                case "1":
+                    reportsComparator.monthlyReport = new MonthlyReport();
+                    System.out.println("Месячные отчеты считаны.");
+                    break;
+                case "2":
+                    reportsComparator.yearlyReport = new YearlyReport();
+                    System.out.println("Годовой отчет считан.");
+                    break;
+                case "3":
+                    System.out.println("Сверка данных:");
+                    reportsComparator.comparator();
+                    break;
+                case "4":
+                    System.out.println("Отчет по месяцам:");
+                    reportsComparator.printMonthlyReport();
+                    break;
+                case "5":
+                    reportsComparator.printYearlyReport();
+                    break;
+                case "exit":
+                    break;
+                default:
+                    System.out.println("Такой команды нет");
             }
             printMenu();
             userInput = scanner.nextLine();
@@ -46,4 +50,3 @@ public class Main {
         System.out.println("exit - Выйти из программы");
     }
 }
-

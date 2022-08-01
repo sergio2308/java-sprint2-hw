@@ -25,14 +25,10 @@ public class ReportsComparator {
             yearReport.add(yearReports.get(i));
             monthReport.add(monthReports.get(i));
         }
-        ArrayList<Integer> yearProfits;
-        ArrayList<Integer> monthProfits;
-        ArrayList<Integer> yearExpenses;
-        ArrayList<Integer> monthExpenses;
-        yearProfits = yearReport.get(0);
-        monthProfits = monthReport.get(0);
-        yearExpenses = yearReport.get(1);
-        monthExpenses = monthReport.get(1);
+        ArrayList<Integer> yearProfits = yearReport.get(0);
+        ArrayList<Integer> monthProfits = monthReport.get(0);
+        ArrayList<Integer> yearExpenses = yearReport.get(1);
+        ArrayList<Integer> monthExpenses = monthReport.get(1);
         ArrayList<String> difference = new ArrayList<>();
             for (int k = 0; k < monthNames.length; k++) {//каждые трата и доход списка за месяц сравниваются с тратой и доходом за этот месяц из списков за год
                 int yearProfit = yearProfits.get(k);
