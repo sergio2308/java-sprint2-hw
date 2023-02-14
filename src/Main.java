@@ -9,7 +9,7 @@ public class Main {
         ReportsComparator reportsComparator = new ReportsComparator();
 
         while (!userInput.equals("exit")) {
-            switch (userInput) {
+            switch (userInput) { 
                 case "1":
                     reportsComparator.monthlyReport = new MonthlyReport();
                     System.out.println("Месячные отчеты считаны.");
