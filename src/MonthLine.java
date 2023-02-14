@@ -1,4 +1,4 @@
-public class MonthLine { 
+public class MonthLine {
     String monthName;
     String itemName;
     boolean isExpense;
