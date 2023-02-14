@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ReportsComparator {
+public class ReportsComparator { 
 
     MonthlyReport monthlyReport = new MonthlyReport();
     YearlyReport yearlyReport = new YearlyReport();
