@@ -3,7 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-public class MonthlyReport { 
+public class MonthlyReport {
     ArrayList<MonthLine> rows = new ArrayList<>();
     String[] monthNames = new String[3];
 
