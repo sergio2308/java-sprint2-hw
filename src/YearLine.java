@@ -1,4 +1,4 @@
-public class YearLine {
+public class YearLine { 
     int month;
     int amount;
     boolean isExpense;
