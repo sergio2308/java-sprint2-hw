@@ -12,24 +12,28 @@ public class MonthlyReport {
 
     }
 
-    public void readFromFile () {
+    public void readFromFile() {
         isExist = true;
         for (int j = 1; j < 4; j++) {
             String path = "resources/m.20210" + j + ".csv";
             String content = readFileContentsOrNull(path);
-            String[] lines = content.split("\r?\n");
-            monthNames [0] = "Январь";
-            monthNames [1] = "Февраль";
-            monthNames [2] = "Март";
-            for (int i = 1; i < lines.length; i++) {
-                String line = lines[i];
-                String[] parts = line.split(",");
-                String monthName = monthNames[j - 1];
-                String itemName = parts[0];
-                boolean isExpense = Boolean.parseBoolean(parts[1]);
-                int quantity = Integer.parseInt(parts[2]);
-                int price = Integer.parseInt(parts[3]);
-                rows.add(new MonthLine(monthName, itemName, isExpense, quantity, price));
+            if (content != null) {
+                String[] lines = content.split("\r?\n");
+                monthNames[0] = "Январь";
+                monthNames[1] = "Февраль";
+                monthNames[2] = "Март";
+                for (int i = 1; i < lines.length; i++) {
+                    String line = lines[i];
+                    String[] parts = line.split(",");
+                    String monthName = monthNames[j - 1];
+                    String itemName = parts[0];
+                    boolean isExpense = Boolean.parseBoolean(parts[1]);
+                    int quantity = Integer.parseInt(parts[2]);
+                    int price = Integer.parseInt(parts[3]);
+                    rows.add(new MonthLine(monthName, itemName, isExpense, quantity, price));
+                }
+            } else {
+                System.out.println("Укажите путь к файлам с отчетами.");
             }
         }
     }
