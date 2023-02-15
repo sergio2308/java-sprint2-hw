@@ -6,8 +6,14 @@ import java.util.ArrayList;
 public class MonthlyReport {
     ArrayList<MonthLine> rows = new ArrayList<>();
     String[] monthNames = new String[3];
+    private boolean isExist = false;
 
     public MonthlyReport() {
+
+    }
+
+    public void readFromFile () {
+        isExist = true;
         for (int j = 1; j < 4; j++) {
             String path = "resources/m.20210" + j + ".csv";
             String content = readFileContentsOrNull(path);
@@ -86,4 +92,7 @@ public class MonthlyReport {
         monthReports.add(monthExpenses);
         return monthReports;
     }//из всех средств, которые мы изучили в курсе, у меня получилось передать уже считанные данные в другой класс и там распаковать таким путем
+    boolean getIsExist() {
+        return isExist;
+    }
 }

@@ -3,10 +3,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-public class YearlyReport { 
+public class YearlyReport {
     ArrayList<YearLine> yearlyReport= new ArrayList<>();
-
+    private boolean isExist = false;
     public YearlyReport() {
+    }
+
+    public void readFromFile() {
+        isExist = true;
         String path = "resources/y.2021.csv";
         String content = readFileContentsOrNull(path);
         String[] lines = content.split("\r?\n");
@@ -19,7 +23,6 @@ public class YearlyReport {
             yearlyReport.add(new YearLine(month, amount, isExpense));
         }
     }
-
     private String readFileContentsOrNull(String path) {
         try {
             return Files.readString(Path.of(path));
@@ -72,5 +75,8 @@ public class YearlyReport {
         yearReports.add(yearProfits);
         yearReports.add(yearExpenses);
         return yearReports;
+    }
+    boolean getIsExist() {
+        return isExist;
     }
 }

@@ -1,33 +1,35 @@
 import java.util.Scanner;
 
-public class Main { 
+public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         printMenu();
         String userInput = scanner.nextLine();
         ReportsComparator reportsComparator = new ReportsComparator();
+        MonthlyReport monthlyReport = new MonthlyReport();
+        YearlyReport yearlyReport = new YearlyReport();
 
         while (!userInput.equals("exit")) {
-            switch (userInput) { 
+            switch (userInput) {
                 case "1":
-                    reportsComparator.monthlyReport = new MonthlyReport();
+                    monthlyReport.readFromFile();
                     System.out.println("Месячные отчеты считаны.");
                     break;
                 case "2":
-                    reportsComparator.yearlyReport = new YearlyReport();
+                    yearlyReport.readFromFile();
                     System.out.println("Годовой отчет считан.");
                     break;
                 case "3":
                     System.out.println("Сверка данных:");
-                    reportsComparator.comparator();
+                    reportsComparator.comparator(yearlyReport, monthlyReport);
                     break;
                 case "4":
                     System.out.println("Отчет по месяцам:");
-                    reportsComparator.printMonthlyReport();
+                    monthlyReport.printReport();
                     break;
                 case "5":
-                    reportsComparator.printYearlyReport();
+                    yearlyReport.printReport();
                     break;
                 case "exit":
                     break;
