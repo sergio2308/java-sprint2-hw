@@ -14,15 +14,20 @@ public class YearlyReport {
         String path = "resources/y.2021.csv";
         String content = readFileContentsOrNull(path);
         String[] lines = content.split("\r?\n");
-        for (int i = 1; i < lines.length; i++) {
-            String line = lines[i];
-            String[] parts = line.split(",");
-            int month = Integer.parseInt(parts[0]);
-            int amount = Integer.parseInt(parts[1]);
-            boolean isExpense = Boolean.parseBoolean(parts[2]);
-            yearlyReport.add(new YearLine(month, amount, isExpense));
+        if (content != null) {
+            for (int i = 1; i < lines.length; i++) {
+                String line = lines[i];
+                String[] parts = line.split(",");
+                int month = Integer.parseInt(parts[0]);
+                int amount = Integer.parseInt(parts[1]);
+                boolean isExpense = Boolean.parseBoolean(parts[2]);
+                yearlyReport.add(new YearLine(month, amount, isExpense));
+            }
+        } else {
+            System.out.println("Укажите путь к файлам с отчетами.");
         }
     }
+
     private String readFileContentsOrNull(String path) {
         try {
             return Files.readString(Path.of(path));
@@ -76,6 +81,7 @@ public class YearlyReport {
         yearReports.add(yearExpenses);
         return yearReports;
     }
+
     boolean getIsExist() {
         return isExist;
     }
