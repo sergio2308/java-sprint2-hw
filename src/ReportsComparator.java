@@ -5,7 +5,7 @@ public class ReportsComparator {
     ArrayList<ArrayList<Integer>> monthReports = new ArrayList<ArrayList<Integer>>();
 
     public void comparator(YearlyReport yearlyReport, MonthlyReport monthlyReport) {//в метод передаются два списка: за месяц и за год, каждый из которых содержит по два списка: все доходы и все траты
-        if (!yearlyReport.getIsExist() || !monthlyReport.getIsExist()) {
+        if (!yearlyReport.getIsExist() || !monthlyReport.getIsExist()) {//добавил проверку на существование объекта
             System.out.println("Сначала считайте отчеты!");
             return;
         } else {
